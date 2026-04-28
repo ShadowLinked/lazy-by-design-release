@@ -36,9 +36,9 @@
       - DEFE (SA) v2.16: all geometry work kept in metric CRS throughout intersection pipeline
       - DEFE (SA) v2.16: topology clean (shrink-dissolve-grow) and dimensional guard (min 0.5m) added
       - DEFE (SA) v2.16: pre-dissolve option added to prevent intersection slivers
-      - Fixed: DEFE toolbar button broken — algorithm ID normalised to defe_sa_raster_soils (no version suffix)
+      - Fixed: DEFE toolbar button broken - algorithm ID normalised to defe_sa_raster_soils (no version suffix)
       1.7.6 (2026-04-28) - Smart Attribute Join
-      - NEW: Smart Attribute Join v2.0 — composite key matching, explicit field selection, 3 conflict policies, dry-run preview
+      - NEW: Smart Attribute Join v2.0 - composite key matching, explicit field selection, 3 conflict policies, dry-run preview
       1.7.5-hotfix2 (2026-04-22) - DXF/DWG Importer Input Path Validation Hotfix
       - DXF/DWG Importer v3.3: file-path-as-folder now raises clear error (output, batch, converted DXF folders)
       - DXF/DWG Importer v3.3: non-existent output folder auto-created instead of raising exception
