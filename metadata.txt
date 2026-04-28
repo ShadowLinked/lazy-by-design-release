@@ -1,0 +1,118 @@
+# This file contains metadata for the QGIS plugin
+
+[general]
+name=Lazy by Design
+qgisMinimumVersion=3.22
+description=A collection of 22 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.7.7
+lastModified=2026-04-28
+author=Lazy by Design (Sheldon Willie)
+email=sheldonwillie@duck.com
+
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 21 powerful algorithms:
+
+    🌊 Multi-Point Watershed Delineation v8.0 (Smart) - GRASS-native large DEM support via disk swap
+    🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
+    🚑 Emergency Vector Edit Rescue v2.5 - Patched geometry repair with 10 critical bug fixes
+    📄 Batch Map Layout Export v9.3 - Parallel PDF/PNG/SVG export with QGIS-standard options
+    📊 Spatial Weighting v2.5 - Field matching and spatial analysis with PCSWMM dictionary
+    🗺️ Raster Calculator - Max/Average with proper NoData handling
+    🌿 DEFE (SA) v2.16 - Raster soils with metric intersection, reprojection repair, topology clean
+    ⛰️ DEM Terrain Boundary Extent v2.1 - Extract DEM boundary as polygon
+    🌧️ DRESSA - Voronoi (SA) - Rainfall Voronoi polygon analysis
+    📋 Add XYZ Table - Add coordinate fields to layer
+    ⛰️ Warping - One-click terrain reprojection
+    🖼️ Watercourse Buffer - 100m/500m buffers
+    ⛰️ Terrain Styler - Hillshade, terrain, contour styling
+    🧹 Orphaned Data Cleaner - Clean unused data from your project
+    🚀 Advanced Catchment Report v2.6 - Comprehensive hydrological analysis
+    📁 DXF/DWG Importer v3.3 - Standalone CAD import with LibreDWG + ODA fallback
+    🛰️ Multi-Source Imagery Downloader v3.5 - Download imagery with GDAL pyramids
+    🌍 Lazy KML Exporter v5.2-perf - Full KML export with QGIS symbology
+    📦 Vector Tiles Downloader - Download and convert MVT/PBF vector tiles
+    ⏹️ Polygon Overlay Merge v1.1 - Overlay-priority polygon merge
+    🌧️ ERA5-Land Climate Data v2.2 - Historical archive (1940-present)
+
+    🧠 Smart Attribute Join v2.0 - Intelligent key-based attribute join with conflict control and dry-run preview
+
+    Designed for efficiency and ease of use!
+
+tracker=https://github.com/lazybydesign/qgis-plugin/issues
+repository=https://github.com/lazybydesign/qgis-plugin
+homepage=https://github.com/lazybydesign/qgis-plugin
+
+hasProcessingProvider=yes
+icon=icon.png
+
+tags=processing,hydrology,watershed,vector,geometry,rescue,layout,export,raster,calculator,spatial,weighting,terrain,rainfall,data,landcover,defe,dressa,voronoi,watercourse,buffer,imagery,satellite,download,kml,google-earth,vector-tiles,mvt,pbf,climate,era5,weather
+
+category=Analysis
+experimental=False
+deprecated=False
+
+changelog=
+    1.7.7 (2026-04-28) - DEFE v2.16 Geometry Artefact Fix
+    - DEFE (SA) v2.16: fix_geometries run after reprojecting to metric UTM (reprojection creates invalid rings)
+    - DEFE (SA) v2.16: intersection uses INVALID_FEATURES_FILTERING=1 to skip bad features instead of crashing
+    - DEFE (SA) v2.16: all geometry work kept in metric CRS throughout intersection pipeline
+    - DEFE (SA) v2.16: topology clean (shrink-dissolve-grow) and dimensional guard (min 0.5m) added
+    - DEFE (SA) v2.16: pre-dissolve option added to prevent intersection slivers
+    - Fixed: DEFE toolbar button broken — algorithm ID normalised to defe_sa_raster_soils (no version suffix)
+
+    1.7.6 (2026-04-28) - Smart Attribute Join
+    - NEW: Smart Attribute Join v2.0 — composite key matching, explicit field selection, 3 conflict policies, dry-run preview
+
+    1.7.5-hotfix2 (2026-04-22) - DXF/DWG Importer Input Path Validation Hotfix
+    - DXF/DWG Importer v3.3: file-path-as-folder now raises clear error (output, batch, converted DXF folders)
+    - DXF/DWG Importer v3.3: non-existent output folder auto-created instead of raising exception
+    - DXF/DWG Importer v3.3: folder-path-as-single-file now gives actionable error message
+    - DXF/DWG Importer v3.3: write failures now explicitly warn "returning memory layer instead" with path
+
+    1.7.5-hotfix1 (2026-04-22) - KML Exporter Pro Performance Hotfix
+    - KML Exporter v5.2-perf: fixed Google Earth crash on open (StyleMap + Region/LOD)
+    - KML Exporter v5.2-perf: fixed QGIS hang/crash on large shapefiles (renderer pre-cache, placemark streaming, geometry simplification)
+    - KML Exporter v5.2-perf: fixed guaranteed NameError at export end (stale kml_lines reference removed)
+
+    1.7.5 (2026-04-14) - DEFE v2.4 Raster Soils, SS Group & Batch Export Font Fix
+    - DEFE (SA) v2.4: Raster soils input, 5 outputs, null SCS backfill, Water->D(Water) remap
+    - SS Group: Optional super-seeded scripts group (disabled by default)
+    - Batch Export v9.3: GDI/DirectWrite font metric correction, profile path fix
+    - Watershed v8.0: GRASS-native large DEM support, stream burn, r.hydrodem auto-install
+
+    1.7.4 (2026-04-07) - Polygon Overlay Merge & Aesthetics Update
+    - NEW: Polygon Overlay Merge Tool (v1.1)
+    - Watershed Delineation v8.0 Smart: GRASS-native pipeline, no resampling
+
+    1.7.3 (2026-03-25) - Spatial Weighting & Tool Stability Patch
+    - Spatial Weighting v2.5: curve number alias fix, overwrite fields fix
+    - Batch Layout Export: raster rendering fix
+    - Parallel Raster Calculator: chunk alignment fix
+
+    1.7.2 (2026-03-18) - Premium Visual & UX Overhaul
+    - Icon Refresh Phase 3: Glassmorphism aesthetic across all tools
+    - Cyberpunk UI theme and easter egg overhaul
+    - DEFE (SA) v2.2: HEC-RAS fields added
+    - DEM Terrain Boundary Extent v2.1: sparse DEM gap fill
+
+    1.7.1 (2026-03-18) - Core Stability Update
+    - Dynamic python-qgis.bat detection for parallel tools
+    - ProjectCrs defaults across all tools
+
+    1.7.0 (2026-03-18) - DEFE Area_km2 Fix & Spatial Weighting Overhauls
+    - DEFE Area_km2 post-dissolve calculation fix
+    - Spatial Weighting overwrite fields and dry-run fixes
+    - DRESSA Voronoi CRS and layer duplication fixes
+
+    1.6.9 (2026-03-17) - Toolbar Fixes & Canvas Drop Handler
+    - All algorithm IDs corrected
+    - Canvas-level DWG/DXF drop handler added
+
+    1.6.8 (2026-03-17) - DEFE v2.2 Critical Bug Fixes
+    - UTM zone detection fix, spatial index fix, raster clip fix
+
+    1.6.0 (2026-03-04) - Vector Tiles Downloader & ERA5 Climate Data
+    - NEW: Vector Tiles Downloader (MVT/PBF to vectors)
+    - NEW: ERA5-Land Climate Data to Excel
+
+    1.5.9 (2026-02-27) - Lazy KML Exporter Pro v5.0
+    1.5.0 (2026-02-18) - DXF/DWG Importer v3.1 PRO
