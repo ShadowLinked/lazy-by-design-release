@@ -117,7 +117,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **DEFE v2.16 — Geometry Artefact Fix**
 
-> **Code Stats:** `+762` lines / `-276` lines (Net: `+486`)
+> **Code Stats:** `+860` lines / `-278` lines (Net: `+582`)
 
 **🌿 DEFE (SA) v2.16 — Raster Soils**
 
