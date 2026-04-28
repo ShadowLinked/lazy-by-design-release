@@ -5,7 +5,7 @@
     <version>1.7.7</version>
     <qgis_minimum_version>3.22</qgis_minimum_version>
     <author_name>Lazy by Design</author_name>
-    <download_url>https://github.com/ShadowLinked/lazy-by-design-release/releases/download/v1.7.7/lazy_by_design_v1.7.7.zip</download_url>
+    <download_url>https://github.com/ShadowLinked/lazy-by-design-release/releases/download/v1.7.7/lazy_by_design.zip</download_url>
     <file_name>lazy_by_design.zip</file_name>
     <experimental>False</experimental>
     <deprecated>False</deprecated>
