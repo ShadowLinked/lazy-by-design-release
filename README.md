@@ -1,12 +1,13 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **22 powerful Processing algorithms** for GIS workflows.
+A collection of **23 powerful Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                               |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------- |
-| **Current** | v1.7.7         | —             | —          | —          | DEFE v2.16 geometry artefact fix                    |
+| **Current** | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                    |
+| Prior             | v1.7.7         | —             | —          | —          | DEFE v2.16 geometry artefact fix                    |
 | Prior             | v1.7.6         | 28,059        | +481 LOC   | 0.035 secs | Smart Attribute Join v2.0 added                     |
 | Prior             | v1.7.5-hotfix2 | 28,059        | +60 LOC    | 0.035 secs | Input path validation patch (DXF/DWG)               |
 | **Current** | v1.7.5-hotfix1 | 27,999        | +563 LOC   | 0.035 secs | KML Exporter performance patch                      |
@@ -61,6 +62,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | ⏹️ Polygon Overlay Merge                        | Overlay-priority polygon merge with optional dissolve             | Vector Analysis   |
 | 🌧️ ERA5-Land Climate Data → Excel*             | Download historical climate data (1950-present) from Open-Meteo   | Climate & Weather |
 | 🧠 Smart Attribute Join v2.0                    | Composite key join with conflict control and dry-run preview      | Vector Analysis   |
+| 🚜 SCS Soils Polygonizer v1.2                   | Clip, polygonize and dissolve CWRR_TU_SCS_Class.tif               | Hydrology & Water |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -112,6 +114,20 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.7.8 (2026-04-29)
+
+> **SCS Soils Polygonizer v1.2**
+
+> **Code Stats:** `+771` lines / `-22` lines (Net: `+749`)
+
+**🚜 SCS Soils Polygonizer v1.2**
+
+- NEW: Standalone utility extracted from DEFE (SA) v2.4 to clip, polygonize and dissolve CWRR_TU_SCS_Class.tif.
+- Features: Handles Auto UTM detection for metric buffering, Water -> D (Water) remap, Post-polygonize VAT join, Null SCS nearest-neighbour backfill, and more.
+- Includes 3 clip modes: No clip (full raster extent), AHR clip (+ buffer), Map canvas extent clip.
+
+---
 
 ### 1.7.7 (2026-04-28)
 

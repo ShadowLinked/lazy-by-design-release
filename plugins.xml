@@ -10,10 +10,10 @@
   Do not edit manually.
 -->
 <plugins>
-  <pyqgis_plugin name="Lazy by Design" version="1.7.7">
-    <description>A collection of 22 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!</description>
+  <pyqgis_plugin name="Lazy by Design" version="1.7.8">
+    <description>A collection of 23 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!</description>
     <about>Lazy by Design is a comprehensive QGIS Processing plugin bundling 22 powerful algorithms across Hydrology, Terrain, Vector Analysis, Data Management, Import/Export, and Climate tools.</about>
-    <version>1.7.7</version>
+    <version>1.7.8</version>
     <trusted>True</trusted>
     <qgis_minimum_version>3.22</qgis_minimum_version>
     <qgis_maximum_version>3.99</qgis_maximum_version>
@@ -22,7 +22,7 @@
     <homepage>https://github.com/ShadowLinked/lazy-by-design-release</homepage>
     <tracker>https://github.com/ShadowLinked/lazy-by-design-release/issues</tracker>
     <repository>https://github.com/ShadowLinked/lazy-by-design-release</repository>
-    <download_url>https://github.com/ShadowLinked/lazy-by-design-release/releases/download/v1.7.7/lazy_by_design.zip</download_url>
+    <download_url>https://github.com/ShadowLinked/lazy-by-design-release/releases/download/v1.7.8/lazy_by_design.zip</download_url>
     <file_name>lazy_by_design.zip</file_name>
     <icon>icon.png</icon>
     <experimental>False</experimental>
@@ -30,6 +30,8 @@
     <server>False</server>
     <tags>processing,hydrology,watershed,vector,geometry,rescue,layout,export,raster,calculator,spatial,weighting,terrain,rainfall,data,landcover,defe,dressa,voronoi,watercourse,buffer,imagery,satellite,download,kml,google-earth,vector-tiles,mvt,pbf,climate,era5,weather</tags>
     <changelog>
+      1.7.8 (2026-04-29) - SCS Soils Polygonizer
+      - NEW: SCS Soils Polygonizer v1.2 - Standalone utility extracted from DEFE (SA) v2.4 to clip, polygonize and dissolve CWRR_TU_SCS_Class.tif
       1.7.7 (2026-04-28) - DEFE v2.16 Geometry Artefact Fix
       - DEFE (SA) v2.16: fix_geometries run after reprojecting to metric UTM (reprojection creates invalid rings)
       - DEFE (SA) v2.16: intersection uses INVALID_FEATURES_FILTERING=1 to skip bad features instead of crashing
@@ -45,10 +47,6 @@
       - DXF/DWG Importer v3.3: non-existent output folder auto-created instead of raising exception
       - DXF/DWG Importer v3.3: folder-path-as-single-file now gives actionable error message
       - DXF/DWG Importer v3.3: write failures now explicitly warn "returning memory layer instead" with path
-      1.7.5-hotfix1 (2026-04-22) - KML Exporter Pro Performance Hotfix
-      - KML Exporter v5.2-perf: fixed Google Earth crash on open (StyleMap + Region/LOD)
-      - KML Exporter v5.2-perf: fixed QGIS hang/crash on large shapefiles (renderer pre-cache, placemark streaming, geometry simplification)
-      - KML Exporter v5.2-perf: fixed guaranteed NameError at export end (stale kml_lines reference removed)
     </changelog>
   </pyqgis_plugin>
 </plugins>

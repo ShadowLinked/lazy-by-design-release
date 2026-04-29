@@ -3,13 +3,13 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 22 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.7.7
-lastModified=2026-04-28
+description=A collection of 23 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.7.8
+lastModified=2026-04-29
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
-about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 21 powerful algorithms:
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 23 powerful algorithms:
 
     🌊 Multi-Point Watershed Delineation v8.0 (Smart) - GRASS-native large DEM support via disk swap
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
@@ -34,6 +34,7 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 21 p
     🌧️ ERA5-Land Climate Data v2.2 - Historical archive (1940-present)
 
     🧠 Smart Attribute Join v2.0 - Intelligent key-based attribute join with conflict control and dry-run preview
+    🚜 SCS Soils Polygonizer v1.2 - Standalone utility to clip, polygonize and dissolve CWRR_TU_SCS_Class.tif
 
     Designed for efficiency and ease of use!
 
@@ -51,6 +52,9 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.7.8 (2026-04-29) - SCS Soils Polygonizer
+    - NEW: SCS Soils Polygonizer v1.2 — Standalone utility extracted from DEFE (SA) v2.4 to clip, polygonize and dissolve CWRR_TU_SCS_Class.tif
+
     1.7.7 (2026-04-28) - DEFE v2.16 Geometry Artefact Fix
     - DEFE (SA) v2.16: fix_geometries run after reprojecting to metric UTM (reprojection creates invalid rings)
     - DEFE (SA) v2.16: intersection uses INVALID_FEATURES_FILTERING=1 to skip bad features instead of crashing
