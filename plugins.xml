@@ -22,8 +22,8 @@
     <homepage>https://github.com/ShadowLinked/lazy-by-design-release</homepage>
     <tracker>https://github.com/ShadowLinked/lazy-by-design-release/issues</tracker>
     <repository>https://github.com/ShadowLinked/lazy-by-design-release</repository>
-    <download_url>https://github.com/ShadowLinked/lazy-by-design-release/releases/download/v1.7.7/lazy_by_design_v1.7.7.zip</download_url>
-    <file_name>lazy_by_design_v1.7.7.zip</file_name>
+    <download_url>https://github.com/ShadowLinked/lazy-by-design-release/releases/download/v1.7.7/lazy_by_design.zip</download_url>
+    <file_name>lazy_by_design.zip</file_name>
     <icon>icon.png</icon>
     <experimental>False</experimental>
     <deprecated>False</deprecated>
@@ -37,6 +37,7 @@
       - DEFE (SA) v2.16: topology clean (shrink-dissolve-grow) and dimensional guard (min 0.5m) added
       - DEFE (SA) v2.16: pre-dissolve option added to prevent intersection slivers
       - Fixed: DEFE toolbar button broken - algorithm ID normalised to defe_sa_raster_soils (no version suffix)
+      - Fixed: metadata.txt repo links corrected to ShadowLinked/lazy-by-design-release
       1.7.6 (2026-04-28) - Smart Attribute Join
       - NEW: Smart Attribute Join v2.0 - composite key matching, explicit field selection, 3 conflict policies, dry-run preview
       1.7.5-hotfix2 (2026-04-22) - DXF/DWG Importer Input Path Validation Hotfix
