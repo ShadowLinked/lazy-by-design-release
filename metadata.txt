@@ -37,9 +37,9 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 21 p
 
     Designed for efficiency and ease of use!
 
-tracker=https://github.com/lazybydesign/qgis-plugin/issues
-repository=https://github.com/lazybydesign/qgis-plugin
-homepage=https://github.com/lazybydesign/qgis-plugin
+tracker=https://github.com/ShadowLinked/lazy-by-design-release/issues
+repository=https://github.com/ShadowLinked/lazy-by-design-release
+homepage=https://github.com/ShadowLinked/lazy-by-design-release
 
 hasProcessingProvider=yes
 icon=icon.png
@@ -58,6 +58,7 @@ changelog=
     - DEFE (SA) v2.16: topology clean (shrink-dissolve-grow) and dimensional guard (min 0.5m) added
     - DEFE (SA) v2.16: pre-dissolve option added to prevent intersection slivers
     - Fixed: DEFE toolbar button broken — algorithm ID normalised to defe_sa_raster_soils (no version suffix)
+    - Fixed: metadata.txt repo links corrected to ShadowLinked/lazy-by-design-release
 
     1.7.6 (2026-04-28) - Smart Attribute Join
     - NEW: Smart Attribute Join v2.0 — composite key matching, explicit field selection, 3 conflict policies, dry-run preview
