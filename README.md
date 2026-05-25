@@ -1,12 +1,13 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **23 powerful Processing algorithms** for GIS workflows.
+A collection of **24 powerful Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                               |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------- |
-| **Current** | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                    |
+| **Current**       | v1.7.9         | 31,368        | +2,281 LOC | 0.041 secs | Flow Accumulation (via WBT) v2.8 added              |
+| Prior             | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                    |
 | Prior             | v1.7.7         | —             | —          | —          | DEFE v2.16 geometry artefact fix                    |
 | Prior             | v1.7.6         | 28,059        | +481 LOC   | 0.035 secs | Smart Attribute Join v2.0 added                     |
 | Prior             | v1.7.5-hotfix2 | 28,059        | +60 LOC    | 0.035 secs | Input path validation patch (DXF/DWG)               |
@@ -63,6 +64,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🌧️ ERA5-Land Climate Data → Excel*             | Download historical climate data (1950-present) from Open-Meteo   | Climate & Weather |
 | 🧠 Smart Attribute Join v2.0                    | Composite key join with conflict control and dry-run preview      | Vector Analysis   |
 | 🚜 SCS Soils Polygonizer v1.2                   | Clip, polygonize and dissolve CWRR_TU_SCS_Class.tif               | Hydrology & Water |
+| 🌊 Flow Accumulation (via WBT) v2.8             | High-performance flow accumulation and stream network extraction | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -114,6 +116,23 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.7.9 (2026-05-25)
+
+> **Flow Accumulation (via WBT) v2.8 — New Tool**
+
+> **Code Stats:** `+2,364` lines / `-80` lines (Net: `+2,284`)
+
+**🌊 Flow Accumulation (via WBT) v2.8**
+
+- NEW: Standalone flow accumulation and stream network extraction tool using WhiteboxTools (WBT) as primary engine with GRASS/SAGA fallback.
+- Features: Depression filling (Breach/Fill), D8 flow direction, multi-threshold stream network extraction, stream order (Strahler/Shreve/Hack), and optional watershed boundary from pour points.
+- Auto-detects WBT installation path; falls back gracefully to GRASS `r.watershed` + SAGA `ta_preprocessor` hybrid pipeline.
+- Outputs: Flow accumulation raster, flow direction raster, stream network (vector lines), stream order raster, and optional watershed polygon.
+- Registered under **⛰️ Terrain & Raster** group with standard glassmorphism and cyberpunk-themed icons.
+- Help text conforms to plugin standards (inputs/outputs/notes sections with PluginConstants).
+
+---
 
 ### 1.7.8 (2026-04-29)
 
