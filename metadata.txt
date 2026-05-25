@@ -3,13 +3,13 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 23 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.7.8
-lastModified=2026-04-29
+description=A collection of 24 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.7.9
+lastModified=2026-05-25
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
-about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 23 powerful algorithms:
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 powerful algorithms:
 
     🌊 Multi-Point Watershed Delineation v8.0 (Smart) - GRASS-native large DEM support via disk swap
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
@@ -22,6 +22,7 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 23 p
     🌧️ DRESSA - Voronoi (SA) - Rainfall Voronoi polygon analysis
     📋 Add XYZ Table - Add coordinate fields to layer
     ⛰️ Warping - One-click terrain reprojection
+    ⛰️ Flow Accumulation (via WBT) v2.8 - High-performance flow accumulation and stream extraction using WhiteboxTools/GRASS
     🖼️ Watercourse Buffer - 100m/500m buffers
     ⛰️ Terrain Styler - Hillshade, terrain, contour styling
     🧹 Orphaned Data Cleaner - Clean unused data from your project
@@ -52,6 +53,9 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.7.9 (2026-05-25) - Flow Accumulation via WBT
+    - NEW: Flow Accumulation (via WBT) v2.8 — Flow accumulation and stream network extraction using WhiteboxTools, with automatic GRASS r.to.vect fallback and robust QGIS auto-loading.
+
     1.7.8 (2026-04-29) - SCS Soils Polygonizer
     - NEW: SCS Soils Polygonizer v1.2 — Standalone utility extracted from DEFE (SA) v2.4 to clip, polygonize and dissolve CWRR_TU_SCS_Class.tif
 
