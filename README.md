@@ -121,7 +121,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **Flow Accumulation (via WBT) v2.8 — New Tool**
 
-> **Code Stats:** `+2,364` lines / `-80` lines (Net: `+2,284`)
+> **Code Stats:** `+2,546` lines / `-108` lines (Net: `+2,438`)
 
 **🌊 Flow Accumulation (via WBT) v2.8**
 
