@@ -60,6 +60,7 @@ changelog=
     - Fixed: XYZ sources without a hardcoded health_tile no longer instant-fail the liveness probe (R3)
     - Fixed: TMS {-y} Y-flip implemented — NGI 50k tiles now request correctly (R4)
     - Changed: Flow Accumulation (via WBT) v2.9 — catchment area input now in km² (was m²), default 0.5 km²
+    - Tooling: QGIS 3.44 compat check now reports 0 errors (gdal.Open false positives suppressed, all calls confirmed guarded)
 
     1.7.9 (2026-05-25) - Flow Accumulation via WBT
     - NEW: Flow Accumulation (via WBT) v2.8 — Flow accumulation and stream network extraction using WhiteboxTools, with automatic GRASS r.to.vect fallback and robust QGIS auto-loading.
