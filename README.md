@@ -117,6 +117,13 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 ## 📝 Version History
 
+### 1.8.0 (2026-06-03)
+> *New release updates*
+
+> **Code Stats:** `+527` lines / `-539` lines (Net: `+-12`)
+
+---
+
 ### 1.7.9 (2026-05-25)
 
 > **Flow Accumulation (via WBT) v2.8 — New Tool**
