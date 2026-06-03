@@ -4,19 +4,20 @@ A collection of **24 powerful Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
-| Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                               |
-| ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------- |
-| **Current**       | v1.7.9         | 31,368        | +2,281 LOC | 0.041 secs | Flow Accumulation (via WBT) v2.8 added              |
-| Prior             | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                    |
-| Prior             | v1.7.7         | —             | —          | —          | DEFE v2.16 geometry artefact fix                    |
-| Prior             | v1.7.6         | 28,059        | +481 LOC   | 0.035 secs | Smart Attribute Join v2.0 added                     |
-| Prior             | v1.7.5-hotfix2 | 28,059        | +60 LOC    | 0.035 secs | Input path validation patch (DXF/DWG)               |
-| **Current** | v1.7.5-hotfix1 | 27,999        | +563 LOC   | 0.035 secs | KML Exporter performance patch                      |
-| Prior             | v1.7.5         | 28,059        | -2,255 LOC | 0.035 secs | Net reduction from diagnostic cleanup + SS refactor |
-| Prior             | v1.7.4         | 30,314        | +2,321 LOC | 0.03 secs  | THE BEST TIME YET — that's optimisation lmao       |
-| Prior             | v1.7.3         | 27,993        | +2,000 LOC | 1.3 secs   | Flawed update                                       |
-| Prior             | v1.7.2         | 24,970        | +2,000 LOC | 1.235 secs | —                                                  |
-| Prior             | v1.6.7         | 22,860        | +2,000 LOC | 1.4 secs   | Flawed update                                       |
+| Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
+| ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
+| **Current**       | v1.8.0         | 32,156        | +788 LOC   | 0.041 secs | Imagery Downloader v3.6 (NGI 50k + fallback fix); Flow Accum km² unit |
+| Prior             | v1.7.9         | 31,368        | +2,281 LOC | 0.041 secs | Flow Accumulation (via WBT) v2.8 added                                |
+| Prior             | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                                      |
+| Prior             | v1.7.7         | —             | —          | —          | DEFE v2.16 geometry artefact fix                                      |
+| Prior             | v1.7.6         | 28,059        | +481 LOC   | 0.035 secs | Smart Attribute Join v2.0 added                                       |
+| Prior             | v1.7.5-hotfix2 | 28,059        | +60 LOC    | 0.035 secs | Input path validation patch (DXF/DWG)                                 |
+| Prior             | v1.7.5-hotfix1 | 27,999        | +563 LOC   | 0.035 secs | KML Exporter performance patch                                        |
+| Prior             | v1.7.5         | 28,059        | -2,255 LOC | 0.035 secs | Net reduction from diagnostic cleanup + SS refactor                   |
+| Prior             | v1.7.4         | 30,314        | +2,321 LOC | 0.03 secs  | THE BEST TIME YET — that's optimisation lmao                         |
+| Prior             | v1.7.3         | 27,993        | +2,000 LOC | 1.3 secs   | Flawed update                                                         |
+| Prior             | v1.7.2         | 24,970        | +2,000 LOC | 1.235 secs | —                                                                    |
+| Prior             | v1.6.7         | 22,860        | +2,000 LOC | 1.4 secs   | Flawed update                                                         |
 
 Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 
@@ -57,14 +58,14 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🧹 Orphaned Data Cleaner                          | Clean and remove unused data from your project                    | Data Management   |
 | 🚀 Advanced Catchment Report v2.6                 | Comprehensive hydrological analysis with popup modals             | Hydrology & Water |
 | 📁 DXF/DWG Importer v3.3                          | Standalone CAD import with comprehensive attribute mapping        | Import & Export   |
-| 🛰️ Multi-Source Imagery Downloader v3.5         | Download imagery with project CRS reprojection + GDAL pyramids    | Import & Export   |
+| 🛰️ Multi-Source Imagery Downloader v3.6         | NGI 50k topo + working download-level fallback + project CRS output  | Import & Export   |
 | 🌍 Lazy KML Exporter v5.2-perf                    | Full-featured KML export with QGIS symbology + smart icons/colors | Import & Export   |
 | 📦 Vector Tiles Downloader                        | Download and convert MVT/PBF vector tiles to standard vectors     | Data Management   |
 | ⏹️ Polygon Overlay Merge                        | Overlay-priority polygon merge with optional dissolve             | Vector Analysis   |
 | 🌧️ ERA5-Land Climate Data → Excel*             | Download historical climate data (1950-present) from Open-Meteo   | Climate & Weather |
 | 🧠 Smart Attribute Join v2.0                    | Composite key join with conflict control and dry-run preview      | Vector Analysis   |
 | 🚜 SCS Soils Polygonizer v1.2                   | Clip, polygonize and dissolve CWRR_TU_SCS_Class.tif               | Hydrology & Water |
-| 🌊 Flow Accumulation (via WBT) v2.8             | High-performance flow accumulation and stream network extraction | Terrain & Raster  |
+| 🌊 Flow Accumulation (via WBT) v2.9             | Flow accumulation and stream extraction; catchment threshold in km²  | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -118,9 +119,22 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 ## 📝 Version History
 
 ### 1.8.0 (2026-06-03)
-> *New release updates*
+
+> **Imagery Downloader v3.6 + Flow Accumulation km² unit**
 
 > **Code Stats:** `+530` lines / `-542` lines (Net: `+-12`)
+
+**🛰️ Multi-Source Imagery Downloader v3.6**
+
+- NEW: NGI 50k Topographic tileset added as a TMS source (SA, zoom 10–15)
+- Fixed: Auto-fallback now retries at the actual download level — if a source passes the health check but produces 0 tiles or blank imagery, the next candidate is tried automatically (R1)
+- Fixed: WMS health check no longer rejects live CDNGI/Apollo servers that advertise namespace-prefixed or differently-cased layer names (R2)
+- Fixed: XYZ/TMS sources without a hardcoded `health_tile` no longer instant-fail the liveness probe — min-zoom (0,0) tile used as fallback (R3)
+- Fixed: TMS `{-y}` Y-flip properly implemented — NGI 50k tiles were raising `KeyError('-y')` before this fix (R4)
+
+**⛰️ Flow Accumulation (via WBT) v2.9**
+
+- Changed: Catchment area input now in km² (was m²), default 0.5 km²
 
 ---
 
