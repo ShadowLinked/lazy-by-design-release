@@ -120,7 +120,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 ### 1.8.0 (2026-06-03)
 > *New release updates*
 
-> **Code Stats:** `+527` lines / `-539` lines (Net: `+-12`)
+> **Code Stats:** `+530` lines / `-542` lines (Net: `+-12`)
 
 ---
 
