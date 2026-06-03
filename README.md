@@ -122,7 +122,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **Imagery Downloader v3.6 + Flow Accumulation km² unit**
 
-> **Code Stats:** `+530` lines / `-542` lines (Net: `+-12`)
+> **Code Stats:** `+602` lines / `-610` lines (Net: `+-8`)
 
 **🛰️ Multi-Source Imagery Downloader v3.6**
 
