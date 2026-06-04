@@ -4,8 +4,8 @@
 name=Lazy by Design
 qgisMinimumVersion=3.22
 description=A collection of 24 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.8.0
-lastModified=2026-06-03
+version=1.8.1
+lastModified=2026-06-04
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
@@ -13,7 +13,7 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 p
 
     🌊 Multi-Point Watershed Delineation v8.0 (Smart) - GRASS-native large DEM support via disk swap
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
-    🚑 Emergency Vector Edit Rescue v2.5 - Patched geometry repair with 10 critical bug fixes
+    🚑 Emergency Vector Edit Rescue v3.1 - Fixed crash (NameError P-16), FID-stable in-buffer sliver/hole ops (P-17), accurate post-processing counts (P-18)
     📄 Batch Map Layout Export v9.3 - Parallel PDF/PNG/SVG export with QGIS-standard options
     📊 Spatial Weighting v2.5 - Field matching and spatial analysis with PCSWMM dictionary
     🗺️ Raster Calculator - Max/Average with proper NoData handling
@@ -53,6 +53,13 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.8.1 (2026-06-04) - Emergency Vector Rescue v3.1 critical fixes
+    - Fixed: Emergency Vector Edit Rescue v3.1 — NameError crash on every run with sliver removal (layer/context out of scope in _create_final_result) (P-16)
+    - Fixed: Sliver/hole post-processing now uses per-FID in-buffer operations — eliminates silent wrong-geometry writes from native algorithm FID remapping (P-17)
+    - Fixed: Post-processing now runs before the summary so output counts are accurate (P-18)
+    - Fixed: Early sliver-drop disabled when sliver merging is requested, preventing slivers from being discarded instead of merged (P-19)
+    - Improved: Removed unused imports and ambiguous variable names (P-20)
+
     1.8.0 (2026-06-03) - Imagery Downloader v3.6 + Flow Accumulation km² unit
     - NEW: Multi-Source Imagery Downloader v3.6 — NGI 50k Topographic tileset (SA) added as TMS source
     - Fixed: Auto-fallback now retries at download level, not just health-check level (R1)
