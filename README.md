@@ -6,7 +6,8 @@ A collection of **24 powerful Processing algorithms** for GIS workflows.
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.8.0         | 32,156        | +788 LOC   | 0.041 secs | Imagery Downloader v3.6 (NGI 50k + fallback fix); Flow Accum km² unit |
+| **Current**       | v1.8.1         | 33,545        | +1,116 LOC | 0.041 secs | Emergency Vector Rescue v3.1 — crash fixes P-16..P-20                 |
+| Prior             | v1.8.0         | 32,156        | +788 LOC   | 0.041 secs | Imagery Downloader v3.6 (NGI 50k + fallback fix); Flow Accum km² unit |
 | Prior             | v1.7.9         | 31,368        | +2,281 LOC | 0.041 secs | Flow Accumulation (via WBT) v2.8 added                                |
 | Prior             | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                                      |
 | Prior             | v1.7.7         | —             | —          | —          | DEFE v2.16 geometry artefact fix                                      |
@@ -44,7 +45,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | ------------------------------------------------- | ----------------------------------------------------------------- | ----------------- |
 | 🌊 Multi-Point Watershed Delineation v7.2         | PCSWMM-style watershed analysis with timestamped layer groups     | Hydrology & Water |
 | 🌊 Multi-Point Watershed Delineation v7.5 (Smart) | Intelligent resample-based watershed with hybrid pipeline         | Hydrology & Water |
-| 🚑 Emergency Vector Edit Rescue v2.5              | Fix geometry issues in edit buffers (10 bug fixes)                | Vector Analysis   |
+| 🚑 Emergency Vector Edit Rescue v3.1              | Fix geometry issues in edit buffers — FID-stable sliver/hole ops (P-16..P-20) | Vector Analysis   |
 | 📄 Batch Map Layout Export                        | Parallel PDF/PNG/SVG export                                       | Map Production    |
 | 📊 Spatial Weighting v2.5                         | AI-powered field matching and spatial analysis                    | Vector Analysis   |
 | 🗺️ Raster Calculator                            | Max/Average with proper NoData handling                           | Terrain & Raster  |
@@ -119,9 +120,18 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 ## 📝 Version History
 
 ### 1.8.1 (2026-06-04)
-> *New release updates*
 
-> **Code Stats:** `+2,886` lines / `-1,770` lines (Net: `+1,116`)
+> **Emergency Vector Edit Rescue v3.1 — Critical crash fixes**
+
+> **Code Stats:** `+2,890` lines / `-1,774` lines (Net: `+1,116`)
+
+**🚑 Emergency Vector Edit Rescue v3.1**
+
+- Fixed: NameError crash on every run with sliver removal enabled — `layer`/`context` were referenced outside their scope in `_create_final_result` (P-16)
+- Fixed: Sliver/hole post-processing now uses per-FID in-buffer ops instead of native algorithm calls — eliminates silent wrong-geometry writes caused by FID remapping (P-17)
+- Fixed: Post-processing now runs before the summary so output counts (slivers merged, holes removed) are accurate (P-18)
+- Fixed: Early sliver-drop disabled when sliver merging is requested — polygon now merges into neighbour instead of being discarded (P-19)
+- Improved: Removed unused imports and ambiguous variable names (P-20)
 
 ---
 
