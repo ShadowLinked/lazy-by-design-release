@@ -118,6 +118,13 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 ## 📝 Version History
 
+### 1.8.1 (2026-06-04)
+> *New release updates*
+
+> **Code Stats:** `+2,886` lines / `-1,770` lines (Net: `+1,116`)
+
+---
+
 ### 1.8.0 (2026-06-03)
 
 > **Imagery Downloader v3.6 + Flow Accumulation km² unit**
