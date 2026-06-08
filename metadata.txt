@@ -3,7 +3,7 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 24 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+description=A collection of 25 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
 version=1.9.0
 lastModified=2026-06-08
 author=Lazy by Design (Sheldon Willie)
