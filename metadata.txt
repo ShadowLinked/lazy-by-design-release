@@ -4,8 +4,8 @@
 name=Lazy by Design
 qgisMinimumVersion=3.22
 description=A collection of 24 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.8.1
-lastModified=2026-06-04
+version=1.9.0
+lastModified=2026-06-08
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
@@ -22,7 +22,8 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 p
     🌧️ DRESSA - Voronoi (SA) - Rainfall Voronoi polygon analysis
     📋 Add XYZ Table - Add coordinate fields to layer
     ⛰️ Warping - One-click terrain reprojection
-    ⛰️ Flow Accumulation (via WBT) v2.8 - High-performance flow accumulation and stream extraction using WhiteboxTools/GRASS
+    ⛰️ Flow Accumulation (via WBT) v2.9 - High-performance flow accumulation and stream extraction using WhiteboxTools/GRASS
+    📐 NN Point Spacing & TIN Interval Advisor v1.0 - Nearest-neighbour spacing analysis for survey/LiDAR data with report-ready output
     🖼️ Watercourse Buffer - 100m/500m buffers
     ⛰️ Terrain Styler - Hillshade, terrain, contour styling
     🧹 Orphaned Data Cleaner - Clean unused data from your project
@@ -53,6 +54,17 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.9.0 (2026-06-08) - NN Point Spacing & TIN Interval Advisor
+    - NEW: NN Point Spacing & TIN Interval Advisor v1.0 — Nearest-neighbour spacing analysis for survey and LiDAR point data
+    - Measures true per-point NN distances via QGIS R-tree spatial index (not grid averages)
+    - Reports full spacing distribution: min, P10, P25, median, mean, P75, P90, max, stdev, IQR, CV
+    - Edge-corrected Clark-Evans pattern index (Donnelly 1978) — clustered / random / regular verdict
+    - Recommends interpolation cell sizes at 0.5x, 1.0x, 2.0x median spacing, snapped to tidy values
+    - Generates two ready-to-paste report sentences (technical and plain language)
+    - Accepts QGIS point layers OR text files (XYZ/TXT/ASC/CSV/PTS/LAS) with auto-detected delimiter/decimal
+    - Streams large LAS files sequentially; auto-sizes point budget from available RAM
+    - ESRI ASCII grid (.asc) auto-detected and converted to cell-centre points
+
     1.8.1 (2026-06-04) - Emergency Vector Rescue v3.1 critical fixes
     - Fixed: Emergency Vector Edit Rescue v3.1 — NameError crash on every run with sliver removal (layer/context out of scope in _create_final_result) (P-16)
     - Fixed: Sliver/hole post-processing now uses per-FID in-buffer operations — eliminates silent wrong-geometry writes from native algorithm FID remapping (P-17)
