@@ -1,6 +1,6 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **24 powerful Processing algorithms** for GIS workflows.
+A collection of **25 powerful Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
@@ -125,7 +125,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **NN Point Spacing & TIN Interval Advisor v1.0 — New Tool**
 
-> **Code Stats:** `+4,323` lines / `-2,268` lines (Net: `+2,055`)
+> **Code Stats:** `+4,324` lines / `-2,269` lines (Net: `+2,055`)
 
 **📐 NN Point Spacing & TIN Interval Advisor v1.0**
 
