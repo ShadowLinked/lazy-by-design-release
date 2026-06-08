@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugins>
   <pyqgis_plugin name="Lazy by Design" version="1.9.0">
-    <description>A collection of 24 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!</description>
+    <description>A collection of 25 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!</description>
     <version>1.9.0</version>
     <qgis_minimum_version>3.22</qgis_minimum_version>
     <author_name>Lazy by Design (Sheldon Willie)</author_name>
