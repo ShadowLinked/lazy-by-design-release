@@ -6,7 +6,8 @@ A collection of **24 powerful Processing algorithms** for GIS workflows.
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.8.1         | 33,545        | +1,116 LOC | 0.041 secs | Emergency Vector Rescue v3.1 — crash fixes P-16..P-20                 |
+| **Current**       | v1.9.0         | ~34,400       | ~+900 LOC  | 0.041 secs | NN Point Spacing & TIN Interval Advisor v1.0                          |
+| Prior             | v1.8.1         | 33,545        | +1,116 LOC | 0.041 secs | Emergency Vector Rescue v3.1 — crash fixes P-16..P-20                 |
 | Prior             | v1.8.0         | 32,156        | +788 LOC   | 0.041 secs | Imagery Downloader v3.6 (NGI 50k + fallback fix); Flow Accum km² unit |
 | Prior             | v1.7.9         | 31,368        | +2,281 LOC | 0.041 secs | Flow Accumulation (via WBT) v2.8 added                                |
 | Prior             | v1.7.8         | —             | —          | —          | SCS Soils Polygonizer v1.2 added                                      |
@@ -67,6 +68,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🧠 Smart Attribute Join v2.0                    | Composite key join with conflict control and dry-run preview      | Vector Analysis   |
 | 🚜 SCS Soils Polygonizer v1.2                   | Clip, polygonize and dissolve CWRR_TU_SCS_Class.tif               | Hydrology & Water |
 | 🌊 Flow Accumulation (via WBT) v2.9             | Flow accumulation and stream extraction; catchment threshold in km²  | Terrain & Raster  |
+| 📐 NN Point Spacing & TIN Interval Advisor v1.0 | Nearest-neighbour spacing analysis for survey/LiDAR data with report-ready output | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -118,6 +120,28 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.9.0 (2026-06-08)
+
+> **NN Point Spacing & TIN Interval Advisor v1.0 — New Tool**
+
+> **Code Stats:** `+4,320` lines / `-2,265` lines (Net: `+2,055`)
+
+**📐 NN Point Spacing & TIN Interval Advisor v1.0**
+
+- NEW: Standalone point-spacing analysis tool for survey and LiDAR data — answers "what interpolation cell size does my data justify?" with defensible, citable numbers.
+- Measures true per-point nearest-neighbour distances via an R-tree spatial index (not grid averages or rough estimates).
+- Reports full spacing distribution: min, P10, P25, **median** (the headline figure), mean, P75, P90, max, stdev, IQR, and coefficient of variation.
+- Edge-corrected Clark-Evans pattern index (Donnelly 1978) — classifies survey as clustered, approximately random, or regular grid.
+- Recommends interpolation cell sizes at 0.5×, 1.0×, and 2.0× the median spacing, snapped to cartographically tidy values.
+- Generates two ready-to-paste report sentences: one technical (method statement) and one plain language (non-specialist audiences).
+- Accepts QGIS point layers or text files (XYZ/TXT/ASC/CSV/PTS) with auto-detected delimiter and decimal separator.
+- Streams large LAS files sequentially without holding the whole file in memory; auto-sizes point budget from available RAM.
+- ESRI ASCII grid (`.asc`) auto-detected and converted to cell-centre points.
+- No extra Python packages required — pure QGIS stdlib.
+- Registered under **⛰️ Terrain & Raster** group.
+
+---
 
 ### 1.8.1 (2026-06-04)
 
