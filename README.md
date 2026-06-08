@@ -125,7 +125,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **NN Point Spacing & TIN Interval Advisor v1.0 — New Tool**
 
-> **Code Stats:** `+4,320` lines / `-2,265` lines (Net: `+2,055`)
+> **Code Stats:** `+4,323` lines / `-2,268` lines (Net: `+2,055`)
 
 **📐 NN Point Spacing & TIN Interval Advisor v1.0**
 
