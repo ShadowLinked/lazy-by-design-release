@@ -126,7 +126,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **NN Point Spacing v1.1 — 8 patches + group fixes**
 
-> **Code Stats:** `+227` lines / `-30` lines (Net: `+197`)
+> **Code Stats:** `+230` lines / `-33` lines (Net: `+197`)
 
 **📐 NN Point Spacing & TIN Interval Advisor v1.1**
 
