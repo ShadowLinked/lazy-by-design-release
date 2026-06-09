@@ -4,8 +4,8 @@
 name=Lazy by Design
 qgisMinimumVersion=3.22
 description=A collection of 25 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.9.0
-lastModified=2026-06-08
+version=1.9.1
+lastModified=2026-06-09
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
@@ -54,6 +54,11 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.9.1 (2026-06-09) - NN Point Spacing v1.1 patches + group fixes
+    - Fixed: Point Spacing Analyser v1.1 — 8 patches (CRS validation P-D, zero NN distance filter P-C, degenerate bbox P-A1/A2/A3, median consistency P-B, report clarity P-E)
+    - Fixed: Point Spacing Analyser now correctly grouped under Terrain & Raster (was its own group)
+    - Fixed: Polygon Overlay Merge now correctly grouped under Vector Analysis (was its own group)
+
     1.9.0 (2026-06-08) - NN Point Spacing & TIN Interval Advisor
     - NEW: NN Point Spacing & TIN Interval Advisor v1.0 — Nearest-neighbour spacing analysis for survey and LiDAR point data
     - Measures true per-point NN distances via QGIS R-tree spatial index (not grid averages)
