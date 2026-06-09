@@ -6,7 +6,8 @@ A collection of **25 powerful Processing algorithms** for GIS workflows.
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.9.0         | ~34,400       | ~+900 LOC  | 0.041 secs | NN Point Spacing & TIN Interval Advisor v1.0                          |
+| **Current**       | v1.9.1         | ~35,400       | ~+200 LOC  | 0.041 secs | Point Spacing v1.1 (8 patches); group fixes for spacing + polygon overlay |
+| Prior             | v1.9.0         | ~34,400       | ~+900 LOC  | 0.041 secs | NN Point Spacing & TIN Interval Advisor v1.0                          |
 | Prior             | v1.8.1         | 33,545        | +1,116 LOC | 0.041 secs | Emergency Vector Rescue v3.1 — crash fixes P-16..P-20                 |
 | Prior             | v1.8.0         | 32,156        | +788 LOC   | 0.041 secs | Imagery Downloader v3.6 (NGI 50k + fallback fix); Flow Accum km² unit |
 | Prior             | v1.7.9         | 31,368        | +2,281 LOC | 0.041 secs | Flow Accumulation (via WBT) v2.8 added                                |
@@ -120,6 +121,27 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.9.1 (2026-06-09)
+
+> **NN Point Spacing v1.1 — 8 patches + group fixes**
+
+> **Code Stats:** `+227` lines / `-30` lines (Net: `+197`)
+
+**📐 NN Point Spacing & TIN Interval Advisor v1.1**
+
+- Fixed (HIGH): CRS validation — geographic layers (degrees) now raise a clear error with reproject instructions; file inputs emit a warning since CRS cannot be inspected from raw coordinates (P-D)
+- Fixed (HIGH): Zero nearest-neighbour distances (duplicate/co-located points) are now filtered before statistics — prevents 0 m cell-size advice and CV = ∞ from corrupting the report (P-C)
+- Fixed (MEDIUM): Degenerate bounding box (collinear points) detected and flagged — density and Clark-Evans R are marked unreliable; spacing/cell-size advice still valid (P-A1/A2/A3)
+- Fixed (MEDIUM): Report now explicitly states Clark-Evans R uses the mean NN distance while cell-size advice uses the median, and labels the R verdict bins as informal convenience thresholds not a formal significance test (P-E)
+- Improved (LOW): Median in compute_spacing now uses `_percentile(0.50)` for internal consistency with P25/P75 (P-B)
+- Fixed: Algorithm now correctly grouped under **⛰️ Terrain & Raster** (was its own isolated group)
+
+**⏹️ Polygon Overlay Merge**
+
+- Fixed: Algorithm now correctly grouped under **📊 Vector Analysis** (was its own isolated group)
+
+---
 
 ### 1.9.0 (2026-06-08)
 
