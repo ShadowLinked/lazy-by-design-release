@@ -4,8 +4,8 @@
 name=Lazy by Design
 qgisMinimumVersion=3.22
 description=A collection of 25 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.9.1
-lastModified=2026-06-09
+version=1.9.2
+lastModified=2026-06-17
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
@@ -19,11 +19,11 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 p
     🗺️ Raster Calculator - Max/Average with proper NoData handling
     🌿 DEFE (SA) v2.16 - Raster soils with metric intersection, reprojection repair, topology clean
     ⛰️ DEM Terrain Boundary Extent v2.1 - Extract DEM boundary as polygon
-    🌧️ DRESSA - Voronoi (SA) - Rainfall Voronoi polygon analysis
+    🌧️ DRESSA - Voronoi (SA) v1.2 - Deterministic planar-m² Area (metric CRS), safe field drops, 20% Voronoi bbox buffer
     📋 Add XYZ Table - Add coordinate fields to layer
     ⛰️ Warping - One-click terrain reprojection
     ⛰️ Flow Accumulation (via WBT) v2.9 - High-performance flow accumulation and stream extraction using WhiteboxTools/GRASS
-    📐 NN Point Spacing & TIN Interval Advisor v1.0 - Nearest-neighbour spacing analysis for survey/LiDAR data with report-ready output
+    📐 NN Point Spacing & TIN Interval Advisor v1.2 - LandXML (.xml) TIN support added; TIN cell size from median triangle edge; axis-order override
     🖼️ Watercourse Buffer - 100m/500m buffers
     ⛰️ Terrain Styler - Hillshade, terrain, contour styling
     🧹 Orphaned Data Cleaner - Clean unused data from your project
@@ -54,6 +54,19 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.9.2 (2026-06-17) - DRESSA v1.2 backend fix + Point Spacing LandXML support
+    - Fixed (DRESSA): Area is now calculated once, deterministically, as planar m² in the metric CRS — values no longer depend on the project's ellipsoid/measurement settings (root-cause of Area mismatch vs model export)
+    - Fixed (DRESSA): Removed duplicated Area field-calculator pass ("Field name Area already exists" warning eliminated)
+    - Fixed (DRESSA): Field drops now check existence first — removes "Field 'FID_2' does not exist" warning on clean pipelines
+    - Improved (DRESSA): Voronoi bbox buffer raised 0 → 20% so edge cells always cover the full AHR even when outermost stations sit close to the boundary
+    - Improved (DRESSA): Algorithm ID bumped to dressa_voronoi_sa_v12; toolbar entry updated to match
+    - NEW (Point Spacing): LandXML (.xml) reader added — reads surface TIN nodes (<Surfaces>/<Surface>/<Definition>/<Pnts>/<P>), aligned with the companion LandXML Mesh/Raster tool so spacing is measured on the exact points that tool rasterises
+    - NEW (Point Spacing): LandXML axis-order parameter — northing-easting (schema default) or easting-northing override for non-conforming exporters
+    - NEW (Point Spacing): For LandXML TINs with explicit <Faces>, cell size is derived from median triangle edge / 2 (matches companion tool), not NN spacing
+    - NEW (Point Spacing): Dedicated TIN report path (_print_report_tin) with triangle-geometry summary and two ready-to-paste report sentences
+    - Improved (Point Spacing): File filter updated to include *.xml; column pattern ignored for LandXML, ESRI grids and LAS
+    - Improved (Point Spacing): ParseResult gains tin_edge_lengths field; LandXML version and axis order always logged
+
     1.9.1 (2026-06-09) - NN Point Spacing v1.1 patches + group fixes
     - Fixed: Point Spacing Analyser v1.1 — 8 patches (CRS validation P-D, zero NN distance filter P-C, degenerate bbox P-A1/A2/A3, median consistency P-B, report clarity P-E)
     - Fixed: Point Spacing Analyser now correctly grouped under Terrain & Raster (was its own group)
