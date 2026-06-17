@@ -127,7 +127,7 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 
 > **DRESSA v1.2 backend fix + Point Spacing LandXML support**
 
-> **Code Stats:** `+4,368` lines / `-148` lines (Net: `+4,220`)
+> **Code Stats:** `+4,401` lines / `-151` lines (Net: `+4,250`)
 
 **🌧️ DRESSA - Voronoi (SA) v1.2**
 
