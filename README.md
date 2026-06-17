@@ -6,7 +6,8 @@ A collection of **25 powerful Processing algorithms** for GIS workflows.
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.9.1         | ~35,400       | ~+200 LOC  | 0.041 secs | Point Spacing v1.1 (8 patches); group fixes for spacing + polygon overlay |
+| **Current**       | v1.9.2         | ~36,100       | ~+700 LOC  | 0.041 secs | DRESSA v1.2 (deterministic Area, safe field drops); Point Spacing v1.2 (LandXML reader, TIN cell-size path) |
+| Prior             | v1.9.1         | ~35,400       | ~+200 LOC  | 0.041 secs | Point Spacing v1.1 (8 patches); group fixes for spacing + polygon overlay |
 | Prior             | v1.9.0         | ~34,400       | ~+900 LOC  | 0.041 secs | NN Point Spacing & TIN Interval Advisor v1.0                          |
 | Prior             | v1.8.1         | 33,545        | +1,116 LOC | 0.041 secs | Emergency Vector Rescue v3.1 — crash fixes P-16..P-20                 |
 | Prior             | v1.8.0         | 32,156        | +788 LOC   | 0.041 secs | Imagery Downloader v3.6 (NGI 50k + fallback fix); Flow Accum km² unit |
@@ -53,7 +54,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🗺️ Raster Calculator                            | Max/Average with proper NoData handling                           | Terrain & Raster  |
 | 🌿 DEFE (SA) v2.16 - Raster Soils                 | Metric intersection, reprojection repair, topology clean, 5 outputs | Hydrology & Water |
 | ⛰️ DEM Terrain Boundary Extent v2.1             | Extract DEM boundary as polygon with sparse DEM gap fill          | Terrain & Raster  |
-| 🌧️ DRESSA - Voronoi (SA)*                       | Rainfall Voronoi polygon analysis                                 | Hydrology & Water |
+| 🌧️ DRESSA - Voronoi (SA) v1.2*                      | Rainfall Voronoi polygon analysis — deterministic planar-m² Area, safe field drops, 20% bbox buffer | Hydrology & Water |
 | 📋 Add XYZ Table                                  | Add X, Y, Z coordinate fields to layer                            | Data Management   |
 | ⛰️ Warping (WGS84 to Project CRS)               | One-click terrain reprojection and clipping                       | Terrain & Raster  |
 | 🖼️ Watercourse Buffer                           | 100m watercourse + 500m vlei/pan buffers                          | Hydrology & Water |
@@ -69,7 +70,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🧠 Smart Attribute Join v2.0                    | Composite key join with conflict control and dry-run preview      | Vector Analysis   |
 | 🚜 SCS Soils Polygonizer v1.2                   | Clip, polygonize and dissolve CWRR_TU_SCS_Class.tif               | Hydrology & Water |
 | 🌊 Flow Accumulation (via WBT) v2.9             | Flow accumulation and stream extraction; catchment threshold in km²  | Terrain & Raster  |
-| 📐 NN Point Spacing & TIN Interval Advisor v1.0 | Nearest-neighbour spacing analysis for survey/LiDAR data with report-ready output | Terrain & Raster  |
+| 📐 NN Point Spacing & TIN Interval Advisor v1.2 | Nearest-neighbour spacing analysis + LandXML TIN support (cell size from median triangle edge) with report-ready output | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -121,6 +122,31 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.9.2 (2026-06-17)
+
+> **DRESSA v1.2 backend fix + Point Spacing LandXML support**
+
+> **Code Stats:** `+4,368` lines / `-148` lines (Net: `+4,220`)
+
+**🌧️ DRESSA - Voronoi (SA) v1.2**
+
+- Fixed: Area is now calculated once, deterministically, as planar m² in the metric CRS — eliminates the environment-dependent mismatch between the script and the original model export (root cause: `$area` was evaluated in EPSG:4326, so results depended on the project's ellipsoid/measurement settings)
+- Fixed: Removed the duplicated Area field-calculator pass — "Field name Area already exists and will be replaced" warning is gone
+- Fixed: Field drops now check column existence first (case-insensitive, GPKG-safe) — "Field 'FID_2' does not exist" warning eliminated on clean pipelines
+- Improved: Voronoi bbox buffer raised from 0 → 20% — edge cells now always cover the full AHR even when outermost stations sit close to the boundary
+- Improved: Algorithm ID bumped to `dressa_voronoi_sa_v12`; toolbar entry updated to match
+
+**📐 NN Point Spacing & TIN Interval Advisor v1.2**
+
+- NEW: LandXML (`.xml`) reader added — pure stdlib, XXE-safe. Reads surface TIN nodes (`<Surfaces>/<Surface>/<Definition>/<Pnts>/<P>`), aligned with the companion LandXML Mesh/Raster tool so spacing is measured on the exact points that tool rasterises
+- NEW: LandXML axis-order parameter — northing-easting (schema default, LandXML 1.0/1.1/1.2) or easting-northing override for non-conforming exporters; choice is always logged for auditability
+- NEW: For LandXML TINs with explicit `<Faces>`, cell size is derived from median triangle edge / 2 (matches the companion tool), falling back to NN spacing when no faces are present
+- NEW: Dedicated TIN report path (`_print_report_tin`) — shows triangle geometry summary and two ready-to-paste report sentences tailored for explicit-TIN input
+- Improved: File filter now includes `*.xml`; column pattern field labelled as ignored for LandXML, ESRI grids and LAS
+- Improved: `ParseResult` gains `tin_edge_lengths` field; LandXML version string and axis order always printed in the log
+
+---
 
 ### 1.9.1 (2026-06-09)
 
