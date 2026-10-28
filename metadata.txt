@@ -3,15 +3,16 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 25 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.9.2
-lastModified=2026-06-17
+description=A collection of 26 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.10.0
+lastModified=2026-10-28
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
-about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 powerful algorithms:
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 26 powerful algorithms:
 
     🌊 Multi-Point Watershed Delineation v8.0 (Smart) - GRASS-native large DEM support via disk swap
+    🌊 Flood Hazard & Scour Velocity Analysis - Integrated NSW/AIDR vulnerability curves, CoCT floodplain policy & permissible scour zones (by Emanuel)
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
     🚑 Emergency Vector Edit Rescue v3.1 - Fixed crash (NameError P-16), FID-stable in-buffer sliver/hole ops (P-17), accurate post-processing counts (P-18)
     📄 Batch Map Layout Export v9.3 - Parallel PDF/PNG/SVG export with QGIS-standard options
@@ -19,11 +20,11 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 p
     🗺️ Raster Calculator - Max/Average with proper NoData handling
     🌿 DEFE (SA) v2.16 - Raster soils with metric intersection, reprojection repair, topology clean
     ⛰️ DEM Terrain Boundary Extent v2.1 - Extract DEM boundary as polygon
-    🌧️ DRESSA - Voronoi (SA) v1.2 - Deterministic planar-m² Area (metric CRS), safe field drops, 20% Voronoi bbox buffer
+    🌧️ DRESSA - Voronoi (SA) v1.2 - Rainfall Voronoi polygon analysis
     📋 Add XYZ Table - Add coordinate fields to layer
     ⛰️ Warping - One-click terrain reprojection
     ⛰️ Flow Accumulation (via WBT) v2.9 - High-performance flow accumulation and stream extraction using WhiteboxTools/GRASS
-    📐 NN Point Spacing & TIN Interval Advisor v1.2 - LandXML (.xml) TIN support added; TIN cell size from median triangle edge; axis-order override
+    📐 NN Point Spacing & TIN Interval Advisor v1.2 - Nearest-neighbour spacing analysis for survey/LiDAR/xml data with report-ready output
     🖼️ Watercourse Buffer - 100m/500m buffers
     ⛰️ Terrain Styler - Hillshade, terrain, contour styling
     🧹 Orphaned Data Cleaner - Clean unused data from your project
@@ -54,18 +55,20 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.10.0 (2026-10-28) - Flood Hazard Classification & Scour Velocity Analysis
+    - NEW: Flood Hazard & Scour Velocity Analysis (by Emanuel) - Single unified algorithm evaluating both hydrodynamic flood hazard and soil scour velocity zones
+    - NSW / AIDR Vulnerability Curves: H1 to H6 vulnerability classes combining Depth, Velocity, and Depth x Velocity thresholds
+    - City of Cape Town Floodplain Policy: Low Hazard / High Hazard classification along V = -5D + 4 boundary line
+    - Permissible Scour Velocity Zones: Polynomial-based soil resistance analysis (Deposition up to Coarse Gravel) with automatic peak depth limit
+    - Depth x Velocity (m2/s): Optional hydrodynamic intensity raster output
+    - Fast single-pass streaming block architecture with automatic nearest-neighbour grid resampling and paletted QGIS layer styling
+
     1.9.2 (2026-06-17) - DRESSA v1.2 backend fix + Point Spacing LandXML support
-    - Fixed (DRESSA): Area is now calculated once, deterministically, as planar m² in the metric CRS — values no longer depend on the project's ellipsoid/measurement settings (root-cause of Area mismatch vs model export)
-    - Fixed (DRESSA): Removed duplicated Area field-calculator pass ("Field name Area already exists" warning eliminated)
-    - Fixed (DRESSA): Field drops now check existence first — removes "Field 'FID_2' does not exist" warning on clean pipelines
-    - Improved (DRESSA): Voronoi bbox buffer raised 0 → 20% so edge cells always cover the full AHR even when outermost stations sit close to the boundary
-    - Improved (DRESSA): Algorithm ID bumped to dressa_voronoi_sa_v12; toolbar entry updated to match
-    - NEW (Point Spacing): LandXML (.xml) reader added — reads surface TIN nodes (Surfaces/Surface/Definition/Pnts/P), aligned with the companion LandXML Mesh/Raster tool so spacing is measured on the exact points that tool rasterises
-    - NEW (Point Spacing): LandXML axis-order parameter — northing-easting (schema default) or easting-northing override for non-conforming exporters
-    - NEW (Point Spacing): For LandXML TINs with explicit Faces elements, cell size is derived from median triangle edge / 2 (matches companion tool), not NN spacing
-    - NEW (Point Spacing): Dedicated TIN report path (_print_report_tin) with triangle-geometry summary and two ready-to-paste report sentences
-    - Improved (Point Spacing): File filter updated to include *.xml; column pattern ignored for LandXML, ESRI grids and LAS
-    - Improved (Point Spacing): ParseResult gains tin_edge_lengths field; LandXML version and axis order always logged
+    - Fixed (DRESSA): Area is now calculated once, deterministically.
+    - Improved (DRESSA): Voronoi bbox buffer raised 0 to 20 percent so edge cells always cover the full AHR
+    - NEW (Point Spacing): LandXML reader added - reads surface TIN nodes
+    - NEW (Point Spacing): LandXML axis-order parameter exposed
+    - NEW (Point Spacing): Dedicated TIN report path
 
     1.9.1 (2026-06-09) - NN Point Spacing v1.1 patches + group fixes
     - Fixed: Point Spacing Analyser v1.1 — 8 patches (CRS validation P-D, zero NN distance filter P-C, degenerate bbox P-A1/A2/A3, median consistency P-B, report clarity P-E)
@@ -90,14 +93,13 @@ changelog=
     - Fixed: Early sliver-drop disabled when sliver merging is requested, preventing slivers from being discarded instead of merged (P-19)
     - Improved: Removed unused imports and ambiguous variable names (P-20)
 
-    1.8.0 (2026-06-03) - Imagery Downloader v3.6 + Flow Accumulation km² unit
+    1.8.0 (2026-06-03) - Imagery Downloader v3.6 + Flow Accumulation km2 unit
     - NEW: Multi-Source Imagery Downloader v3.6 — NGI 50k Topographic tileset (SA) added as TMS source
     - Fixed: Auto-fallback now retries at download level, not just health-check level (R1)
     - Fixed: WMS health check no longer rejects live CDNGI/Apollo servers with namespace-prefixed layer names (R2)
     - Fixed: XYZ sources without a hardcoded health_tile no longer instant-fail the liveness probe (R3)
     - Fixed: TMS {-y} Y-flip implemented — NGI 50k tiles now request correctly (R4)
-    - Changed: Flow Accumulation (via WBT) v2.9 — catchment area input now in km² (was m²), default 0.5 km²
-    - Tooling: QGIS 3.44 compat check now reports 0 errors (gdal.Open false positives suppressed, all calls confirmed guarded)
+    - Changed: Flow Accumulation (via WBT) v2.9 — catchment area input now in km2 (was m2), default 0.5 km2
 
     1.7.9 (2026-05-25) - Flow Accumulation via WBT
     - NEW: Flow Accumulation (via WBT) v2.8 — Flow accumulation and stream network extraction using WhiteboxTools, with automatic GRASS r.to.vect fallback and robust QGIS auto-loading.
