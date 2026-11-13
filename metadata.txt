@@ -3,16 +3,14 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 27 powerful processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.11.0
+description=A collection of 25 core processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.11.1
 lastModified=2026-11-13
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
-about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 27 powerful algorithms:
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 25 core processing algorithms (plus optional Super-Seeded tools):
 
-    🌊 Multi-Point Watershed Delineation v8.0 (Smart) - GRASS-native large DEM support via disk swap
-    🌊 Flood Hazard & Scour Velocity Analysis - Integrated NSW/AIDR vulnerability curves, CoCT floodplain policy & permissible scour zones (by Emanuel)
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
     🚑 Emergency Vector Edit Rescue v3.1 - Fixed crash (NameError P-16), FID-stable in-buffer sliver/hole ops (P-17), accurate post-processing counts (P-18)
     📄 Batch Map Layout Export v9.3 - Parallel PDF/PNG/SVG export with QGIS-standard options
@@ -56,6 +54,12 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.11.1 (2026-11-13) - Moved Faulty Smart Watershed & Flood/Scour to Super-Seeded (SS) Group
+    - Super-Seeded Move: Multi-Point Watershed Delineation (v8.1 Smart) moved to the optional SS group due to reported instability (use standard Multi-Point Watershed Delineation instead)
+    - Super-Seeded Move: Flood Hazard & Scour Velocity Analysis moved to the optional SS group
+    - Core Provider Cleanup: Active algorithm list now cleanly focused on verified, stable tools; SS group toggle in Toolbar Settings enables access when needed
+    - New Native Tool: Clip Raster by Mask (Grid Preserving) is now the featured zero-shift raster cutter in Terrain & Raster
+
     1.10.0 (2026-10-28) - Flood Hazard Classification & Scour Velocity Analysis
     - NEW: Flood Hazard & Scour Velocity Analysis (by Emanuel) - Single unified algorithm evaluating both hydrodynamic flood hazard and soil scour velocity zones
     - NSW / AIDR Vulnerability Curves: H1 to H6 vulnerability classes combining Depth, Velocity, and Depth x Velocity thresholds
