@@ -1,12 +1,13 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **27 powerful Processing algorithms** for GIS workflows.
+A collection of **25 core Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.11.0        | ~37,400       | ~+400 LOC  | 0.041 secs | Clip Raster by Mask (Grid Preserving) — zero warp, zero resampling, zero sub-pixel shift |
+| **Current**       | v1.11.1        | ~37,400       | ~0 LOC     | 0.041 secs | Moved faulty Smart Watershed & Flood/Scour to optional Super-Seeded (SS) group   |
+| Prior             | v1.11.0        | ~37,400       | ~+400 LOC  | 0.041 secs | Clip Raster by Mask (Grid Preserving) — zero warp, zero resampling, zero sub-pixel shift |
 | Prior             | v1.10.0        | ~37,000       | ~+600 LOC  | 0.041 secs | Flood Hazard & Scour Velocity Analysis (by Emanuel) — unified NSW/AIDR, CoCT & soil scour zones |
 | Prior             | v1.9.2         | ~36,100       | ~+700 LOC  | 0.041 secs | DRESSA v1.2 (deterministic Area, safe field drops); Point Spacing v1.2 (LandXML reader, TIN cell-size path) |
 | Prior             | v1.9.1         | ~35,400       | ~+200 LOC  | 0.041 secs | Point Spacing v1.1 (8 patches); group fixes for spacing + polygon overlay |
@@ -49,7 +50,6 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | Tool                                              | Description                                                       | Group             |
 | ------------------------------------------------- | ----------------------------------------------------------------- | ----------------- |
 | 🌊 Multi-Point Watershed Delineation v7.2         | PCSWMM-style watershed analysis with timestamped layer groups     | Hydrology & Water |
-| 🌊 Multi-Point Watershed Delineation v7.5 (Smart) | Intelligent resample-based watershed with hybrid pipeline         | Hydrology & Water |
 | 🚑 Emergency Vector Edit Rescue v3.1              | Fix geometry issues in edit buffers — FID-stable sliver/hole ops (P-16..P-20) | Vector Analysis   |
 | 📄 Batch Map Layout Export                        | Parallel PDF/PNG/SVG export                                       | Map Production    |
 | 📊 Spatial Weighting v2.5                         | AI-powered field matching and spatial analysis                    | Vector Analysis   |
@@ -72,7 +72,6 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🧠 Smart Attribute Join v2.0                    | Composite key join with conflict control and dry-run preview      | Vector Analysis   |
 | 🚜 SCS Soils Polygonizer v1.2                   | Clip, polygonize and dissolve CWRR_TU_SCS_Class.tif               | Hydrology & Water |
 | 🌊 Flow Accumulation (via WBT) v2.9             | Flow accumulation and stream extraction; catchment threshold in km²  | Terrain & Raster  |
-| 🌊 Flood Hazard & Scour Velocity Analysis         | Integrated NSW/AIDR (H1-H6), CoCT floodplain policy & permissible scour zones (by Emanuel) | Hydrology & Water |
 | 📐 NN Point Spacing & TIN Interval Advisor v1.2 | Nearest-neighbour spacing analysis + LandXML TIN support (cell size from median triangle edge) with report-ready output | Terrain & Raster  |
 | 📐 Clip Raster by Mask (Grid Preserving)          | Masks raster cells outside polygon without warping or sub-pixel coordinate shift          | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
@@ -126,6 +125,11 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.11.1 (2026-11-13)
+> *New release updates*
+
+---
 
 ### 1.11.0 (2026-11-13)
 > *New release updates*
