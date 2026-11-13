@@ -1,12 +1,13 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **26 powerful Processing algorithms** for GIS workflows.
+A collection of **27 powerful Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.10.0        | ~37,000       | ~+600 LOC  | 0.041 secs | Flood Hazard & Scour Velocity Analysis (by Emanuel) — unified NSW/AIDR, CoCT & soil scour zones |
+| **Current**       | v1.11.0        | ~37,400       | ~+400 LOC  | 0.041 secs | Clip Raster by Mask (Grid Preserving) — zero warp, zero resampling, zero sub-pixel shift |
+| Prior             | v1.10.0        | ~37,000       | ~+600 LOC  | 0.041 secs | Flood Hazard & Scour Velocity Analysis (by Emanuel) — unified NSW/AIDR, CoCT & soil scour zones |
 | Prior             | v1.9.2         | ~36,100       | ~+700 LOC  | 0.041 secs | DRESSA v1.2 (deterministic Area, safe field drops); Point Spacing v1.2 (LandXML reader, TIN cell-size path) |
 | Prior             | v1.9.1         | ~35,400       | ~+200 LOC  | 0.041 secs | Point Spacing v1.1 (8 patches); group fixes for spacing + polygon overlay |
 | Prior             | v1.9.0         | ~34,400       | ~+900 LOC  | 0.041 secs | NN Point Spacing & TIN Interval Advisor v1.0                          |
@@ -73,6 +74,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🌊 Flow Accumulation (via WBT) v2.9             | Flow accumulation and stream extraction; catchment threshold in km²  | Terrain & Raster  |
 | 🌊 Flood Hazard & Scour Velocity Analysis         | Integrated NSW/AIDR (H1-H6), CoCT floodplain policy & permissible scour zones (by Emanuel) | Hydrology & Water |
 | 📐 NN Point Spacing & TIN Interval Advisor v1.2 | Nearest-neighbour spacing analysis + LandXML TIN support (cell size from median triangle edge) with report-ready output | Terrain & Raster  |
+| 📐 Clip Raster by Mask (Grid Preserving)          | Masks raster cells outside polygon without warping or sub-pixel coordinate shift          | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -124,6 +126,11 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.11.0 (2026-11-13)
+> *New release updates*
+
+---
 
 ### 1.10.0 (2026-10-28)
 > *New release updates*
