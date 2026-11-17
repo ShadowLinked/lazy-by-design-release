@@ -1,12 +1,13 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **25 core Processing algorithms** for GIS workflows.
+A collection of **23 core Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.11.1        | ~37,400       | ~0 LOC     | 0.041 secs | Moved faulty Smart Watershed & Flood/Scour to optional Super-Seeded (SS) group   |
+| **Current**       | v1.11.2        | ~36,100       | ~0 LOC     | 0.041 secs | Moved Orphan Cleaner & Terrain Styler to SS group; CURVENO field for PCSWMM; removed SS tools from toolbar icons |
+| Prior             | v1.11.1        | ~37,400       | ~0 LOC     | 0.041 secs | Moved faulty Smart Watershed & Flood/Scour to optional Super-Seeded (SS) group   |
 | Prior             | v1.11.0        | ~37,400       | ~+400 LOC  | 0.041 secs | Clip Raster by Mask (Grid Preserving) — zero warp, zero resampling, zero sub-pixel shift |
 | Prior             | v1.10.0        | ~37,000       | ~+600 LOC  | 0.041 secs | Flood Hazard & Scour Velocity Analysis (by Emanuel) — unified NSW/AIDR, CoCT & soil scour zones |
 | Prior             | v1.9.2         | ~36,100       | ~+700 LOC  | 0.041 secs | DRESSA v1.2 (deterministic Area, safe field drops); Point Spacing v1.2 (LandXML reader, TIN cell-size path) |
@@ -60,8 +61,6 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 📋 Add XYZ Table                                  | Add X, Y, Z coordinate fields to layer                            | Data Management   |
 | ⛰️ Warping (WGS84 to Project CRS)               | One-click terrain reprojection and clipping                       | Terrain & Raster  |
 | 🖼️ Watercourse Buffer                           | 100m watercourse + 500m vlei/pan buffers                          | Hydrology & Water |
-| ⛰️ Terrain Styler                               | Apply hillshade, terrain, and contour styles to DEM               | Terrain & Raster  |
-| 🧹 Orphaned Data Cleaner                          | Clean and remove unused data from your project                    | Data Management   |
 | 🚀 Advanced Catchment Report v2.6                 | Comprehensive hydrological analysis with popup modals             | Hydrology & Water |
 | 📁 DXF/DWG Importer v3.3                          | Standalone CAD import with comprehensive attribute mapping        | Import & Export   |
 | 🛰️ Multi-Source Imagery Downloader v3.6         | NGI 50k topo + working download-level fallback + project CRS output  | Import & Export   |
@@ -125,6 +124,14 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.11.2 (2026-11-17)
+- **Super-Seeded Move**: Moved Orphaned Data Cleaner and Terrain Styler to the optional Super-Seeded (SS) group
+- **Toolbar Icons Cleanup**: Hidden/removed superseded algorithms (Flood Hazard & Scour, Watershed Smart, Orphaned Data Cleaner, Terrain Styler) from the toolbar algorithm icons registry
+- **DEFE-SA PCSWMM Alignment**: Renamed output field `CN` to `CURVENO` for seamless automatic field mapping in PCSWMM
+- **Core Provider**: Active provider streamlined to 23 verified core processing tools
+
+---
 
 ### 1.11.1 (2026-11-13)
 > *New release updates*
