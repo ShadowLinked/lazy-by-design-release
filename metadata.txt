@@ -3,13 +3,13 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 25 core processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.11.1
-lastModified=2026-11-13
+description=A collection of 23 core processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.11.2
+lastModified=2026-11-17
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
-about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 25 core processing algorithms (plus optional Super-Seeded tools):
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 23 core processing algorithms (plus optional Super-Seeded tools):
 
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
     🚑 Emergency Vector Edit Rescue v3.1 - Fixed crash (NameError P-16), FID-stable in-buffer sliver/hole ops (P-17), accurate post-processing counts (P-18)
@@ -25,8 +25,6 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 25 c
     ⛰️ Flow Accumulation (via WBT) v2.9 - High-performance flow accumulation and stream extraction using WhiteboxTools/GRASS
     📐 NN Point Spacing & TIN Interval Advisor v1.2 - Nearest-neighbour spacing analysis for survey/LiDAR/xml data with report-ready output
     🖼️ Watercourse Buffer - 100m/500m buffers
-    ⛰️ Terrain Styler - Hillshade, terrain, contour styling
-    🧹 Orphaned Data Cleaner - Clean unused data from your project
     🚀 Advanced Catchment Report v2.6 - Comprehensive hydrological analysis
     📁 DXF/DWG Importer v3.3 - Standalone CAD import with LibreDWG + ODA fallback
     🛰️ Multi-Source Imagery Downloader v3.6 - NGI 50k topo source + working download-level auto-fallback
@@ -54,6 +52,12 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.11.2 (2026-11-17) - Super-Seeded Migration & PCSWMM Field Alignment
+    - Super-Seeded Move: Orphaned Data Cleaner and Terrain Styler moved to optional Super-Seeded (SS) group
+    - Toolbar Icons Cleanup: Removed superseded algorithms (Flood Hazard & Scour, Watershed Smart, Orphaned Data Cleaner, Terrain Styler) from toolbar algorithm icons
+    - DEFE-SA: Renamed output field 'CN' to 'CURVENO' for seamless automatic field matching with PCSWMM
+    - Core Provider: 23 verified core processing tools in active provider
+
     1.11.1 (2026-11-13) - Moved Faulty Smart Watershed & Flood/Scour to Super-Seeded (SS) Group
     - Super-Seeded Move: Multi-Point Watershed Delineation (v8.1 Smart) moved to the optional SS group due to reported instability (use standard Multi-Point Watershed Delineation instead)
     - Super-Seeded Move: Flood Hazard & Scour Velocity Analysis moved to the optional SS group
