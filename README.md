@@ -1,12 +1,13 @@
 # 👻 Lazy by Design - QGIS Plugin
 
-A collection of **23 core Processing algorithms** for GIS workflows.
+A collection of **24 core Processing algorithms** for GIS workflows.
 
 ## 📊 Progress Report
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.11.2        | ~36,100       | ~0 LOC     | 0.041 secs | Moved Orphan Cleaner & Terrain Styler to SS group; CURVENO field for PCSWMM; removed SS tools from toolbar icons |
+| **Current**       | v1.12.0        | ~36,700       | ~+600 LOC  | 0.041 secs | GEDTM 30m DEM Downloader — stream & extract global ensemble DTM via COG range requests |
+| Prior             | v1.11.2        | ~36,100       | ~0 LOC     | 0.041 secs | Moved Orphan Cleaner & Terrain Styler to SS group; CURVENO field for PCSWMM; removed SS tools from toolbar icons |
 | Prior             | v1.11.1        | ~37,400       | ~0 LOC     | 0.041 secs | Moved faulty Smart Watershed & Flood/Scour to optional Super-Seeded (SS) group   |
 | Prior             | v1.11.0        | ~37,400       | ~+400 LOC  | 0.041 secs | Clip Raster by Mask (Grid Preserving) — zero warp, zero resampling, zero sub-pixel shift |
 | Prior             | v1.10.0        | ~37,000       | ~+600 LOC  | 0.041 secs | Flood Hazard & Scour Velocity Analysis (by Emanuel) — unified NSW/AIDR, CoCT & soil scour zones |
@@ -73,6 +74,7 @@ Milestone: v1.6.6 crossed 16,000 lines of code (comments not included)
 | 🌊 Flow Accumulation (via WBT) v2.9             | Flow accumulation and stream extraction; catchment threshold in km²  | Terrain & Raster  |
 | 📐 NN Point Spacing & TIN Interval Advisor v1.2 | Nearest-neighbour spacing analysis + LandXML TIN support (cell size from median triangle edge) with report-ready output | Terrain & Raster  |
 | 📐 Clip Raster by Mask (Grid Preserving)          | Masks raster cells outside polygon without warping or sub-pixel coordinate shift          | Terrain & Raster  |
+| 🌐 GEDTM 30m DEM Downloader                       | Stream and extract 30m Global Ensemble DTM via COG /vsicurl/ range requests with extent/mask clip and scaling | Terrain & Raster  |
 | 🗄️ SS Group (optional)                          | Superseded scripts — toggle in Toolbar Settings (off by default) | Super-Seeded (SS) |
 
 ** **Backtracked** and rebuilt due to **an **error*
@@ -124,6 +126,17 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.12.0 (2026-11-25)
+- **NEW: GEDTM 30m DEM Downloader**: Direct cloud streaming and window extraction of OpenGeoHub's 30m Global Ensemble Digital Terrain Model (GEDTM v1.2)
+- **Cloud-Optimized COG Streaming**: Queries OpenGeoHub's 432 GB global COG via `/vsicurl/` HTTP range requests to download only the tiles intersecting your AOI
+- **Elevation Scaling**: Automatically applies the 0.1 scale multiplier to convert raw decimeter raster values to true meters, with clean NoData normalization (-9999)
+- **Flexible AOI Bounding**: Supports canvas extent, layer bounding box, or vector mask layer (Shapefile/GeoPackage) with optional metric buffer
+- **Cutline Cropping**: Optional exact polygon cutline masking
+- **Reprojection**: Automatic reprojection to active Project CRS (or custom target CRS) with continuous elevation resampling (Bilinear, Cubic, Cubic Spline)
+- **Auto-Styling**: Automatic terrain elevation styling applied on completion
+
+---
 
 ### 1.11.2 (2026-11-17)
 - **Super-Seeded Move**: Moved Orphaned Data Cleaner and Terrain Styler to the optional Super-Seeded (SS) group
