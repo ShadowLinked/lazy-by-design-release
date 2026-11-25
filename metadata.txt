@@ -3,13 +3,13 @@
 [general]
 name=Lazy by Design
 qgisMinimumVersion=3.22
-description=A collection of 23 core processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.11.2
-lastModified=2026-11-17
+description=A collection of 24 core processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
+version=1.12.0
+lastModified=2026-11-25
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
-about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 23 core processing algorithms (plus optional Super-Seeded tools):
+about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 24 core processing algorithms (plus optional Super-Seeded tools):
 
     🌊 Multi-Point Watershed Delineation v7.2 - Refactored layer organization with timestamped groups
     🚑 Emergency Vector Edit Rescue v3.1 - Fixed crash (NameError P-16), FID-stable in-buffer sliver/hole ops (P-17), accurate post-processing counts (P-18)
@@ -17,6 +17,7 @@ about=Lazy by Design is a comprehensive QGIS Processing plugin that bundles 23 c
     📊 Spatial Weighting v2.5 - Field matching and spatial analysis with PCSWMM dictionary
     🗺️ Raster Calculator - Max/Average with proper NoData handling
     📐 Clip Raster by Mask (Grid Preserving) - Pure native grid masking with zero warp, zero resampling, and zero sub-pixel coordinate shift
+    🌐 GEDTM 30m DEM Downloader - Stream & extract 30m Global Ensemble DTM via COG range requests with extent/mask clip and scaling
     🌿 DEFE (SA) v2.16 - Raster soils with metric intersection, reprojection repair, topology clean
     ⛰️ DEM Terrain Boundary Extent v2.1 - Extract DEM boundary as polygon
     🌧️ DRESSA - Voronoi (SA) v1.2 - Rainfall Voronoi polygon analysis
@@ -52,6 +53,15 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.12.0 (2026-11-25) - GEDTM 30m DEM Downloader
+    - NEW: GEDTM 30m DEM Downloader - Direct cloud streaming and extraction of OpenGeoHub's 30m Global Ensemble Digital Terrain Model (GEDTM v1.2)
+    - Cloud-Optimized COG Streaming: Uses /vsicurl/ HTTP range requests to download only the bounding window intersecting your AOI from the 432 GB global dataset
+    - Elevation Scaling: Automatically applies the 0.1 scale multiplier to convert raw decimeter raster values to true meters, with clean NoData normalization (-9999)
+    - Flexible AOI Bounding: Supports canvas extent, layer bounding box, or vector mask layer (Shapefile/GeoPackage) with optional metric buffer
+    - Cutline Cropping: Optional exact polygon cutline masking
+    - Reprojection: Automatic reprojection to active Project CRS (or custom target CRS) with continuous elevation resampling (Bilinear, Cubic, Cubic Spline)
+    - Auto-Styling: Automatic terrain elevation styling applied on completion
+
     1.11.2 (2026-11-17) - Super-Seeded Migration & PCSWMM Field Alignment
     - Super-Seeded Move: Orphaned Data Cleaner and Terrain Styler moved to optional Super-Seeded (SS) group
     - Toolbar Icons Cleanup: Removed superseded algorithms (Flood Hazard & Scour, Watershed Smart, Orphaned Data Cleaner, Terrain Styler) from toolbar algorithm icons
