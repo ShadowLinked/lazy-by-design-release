@@ -6,7 +6,8 @@ A collection of **24 core Processing algorithms** for GIS workflows.
 
 | Status            | Version        | Lines of Code | Delta      | Load Time  | Notes                                                                 |
 | ----------------- | -------------- | ------------- | ---------- | ---------- | --------------------------------------------------------------------- |
-| **Current**       | v1.12.0        | ~36,700       | ~+600 LOC  | 0.041 secs | GEDTM 30m DEM Downloader — stream & extract global ensemble DTM via COG range requests |
+| **Current**       | v1.12.1        | ~36,700       | ~0 LOC     | 0.041 secs | GEDTM 30m Downloader: Nearest Neighbour set as default resampling     |
+| Prior             | v1.12.0        | ~36,700       | ~+600 LOC  | 0.041 secs | GEDTM 30m DEM Downloader — stream & extract global ensemble DTM via COG range requests |
 | Prior             | v1.11.2        | ~36,100       | ~0 LOC     | 0.041 secs | Moved Orphan Cleaner & Terrain Styler to SS group; CURVENO field for PCSWMM; removed SS tools from toolbar icons |
 | Prior             | v1.11.1        | ~37,400       | ~0 LOC     | 0.041 secs | Moved faulty Smart Watershed & Flood/Scour to optional Super-Seeded (SS) group   |
 | Prior             | v1.11.0        | ~37,400       | ~+400 LOC  | 0.041 secs | Clip Raster by Mask (Grid Preserving) — zero warp, zero resampling, zero sub-pixel shift |
@@ -126,6 +127,11 @@ The plugin includes both the **Standard v7.2-v7.4** and **Smart v7.4+ (Resample)
 - Seamless integration with QGIS project structure
 
 ## 📝 Version History
+
+### 1.12.1 (2026-11-26)
+- **GEDTM 30m Downloader**: Nearest Neighbour set as the default resampling method for reprojection/cutline
+
+---
 
 ### 1.12.0 (2026-11-25)
 - **NEW: GEDTM 30m DEM Downloader**: Direct cloud streaming and window extraction of OpenGeoHub's 30m Global Ensemble Digital Terrain Model (GEDTM v1.2)
