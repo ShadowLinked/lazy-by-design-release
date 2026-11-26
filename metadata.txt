@@ -4,8 +4,8 @@
 name=Lazy by Design
 qgisMinimumVersion=3.22
 description=A collection of 24 core processing tools for GIS workflows - Hydrology, Terrain, Rainfall, Data, CAD, Imagery, Export, and more!
-version=1.12.0
-lastModified=2026-11-25
+version=1.12.1
+lastModified=2026-11-26
 author=Lazy by Design (Sheldon Willie)
 email=sheldonwillie@duck.com
 
@@ -53,6 +53,9 @@ experimental=False
 deprecated=False
 
 changelog=
+    1.12.1 (2026-11-26) - GEDTM Default Resampling Update
+    - GEDTM 30m Downloader: Set Nearest Neighbour as the default resampling method
+
     1.12.0 (2026-11-25) - GEDTM 30m DEM Downloader
     - NEW: GEDTM 30m DEM Downloader - Direct cloud streaming and extraction of OpenGeoHub's 30m Global Ensemble Digital Terrain Model (GEDTM v1.2)
     - Cloud-Optimized COG Streaming: Uses /vsicurl/ HTTP range requests to download only the bounding window intersecting your AOI from the 432 GB global dataset
